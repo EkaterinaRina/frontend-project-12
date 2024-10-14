@@ -11,7 +11,7 @@ const ru = {
     username: 'Имя пользователя',
     password: 'Пароль',
     passCheck: 'Повторите пароль',
-    withountAccount: 'Нет аккаунта?',
+    withoutAccount: 'Нет аккаунта?',
     withAccount: 'Есть аккаунт?',
     send: 'Отправить',
     registration: 'Регистрация',

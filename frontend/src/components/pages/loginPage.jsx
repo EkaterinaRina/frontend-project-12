@@ -31,7 +31,7 @@ const LoginPage = () => {
                                             name='username'
                                             className='form-control'
                                             id="username"
-                                            placeholder={t('form.yourname')}
+                                            placeholder={t('form.yourName')}
                                         />
                                     </div>
                                     <div className="form-floating mb-4">

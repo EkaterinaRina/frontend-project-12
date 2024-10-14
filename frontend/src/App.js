@@ -4,13 +4,15 @@ import ErrorPage from './components/pages/errorPage.jsx';
 import LoginPage from './components/pages/loginPage.jsx';
 import ChatPage from './components/pages/chatPage.jsx';
 import routes from './utils/routes.js';
-import ru from './utils/locales.js';
+import ru from './utils/locales';
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
 const App = () => {
   const resources = {
-    ru,
+    ru: {
+      translation: ru,
+    },
   };
 
   i18next.use(initReactI18next).init({
