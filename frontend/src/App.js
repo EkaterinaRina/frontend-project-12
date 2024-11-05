@@ -25,15 +25,15 @@ const App = () => {
   });
 
   return (
-    <div className="App">
-      <BrowserRouter>
+    <BrowserRouter>
+      <div className="d-flex flex-column h-100">
         <Routes>
           <Route path="*" element={<ErrorPage />} />
           <Route path={routes.login} element={<LoginPage />} />
           <Route path={routes.chat} element={<ChatPage />} />
         </Routes>
-      </BrowserRouter>
-    </div>
+      </div>
+    </BrowserRouter >
   );
 }
 
