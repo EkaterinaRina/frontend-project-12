@@ -16,12 +16,16 @@ const ru = {
     send: 'Отправить',
     registration: 'Регистрация',
     goRegistration: 'Загерестрироваться',
+    logitError: 'Неверный логин или пароль',
     enter: 'Войти',
   },
   header: {
     quit: 'Выход',
     title: 'Hexlet Chat',
-  }
+  },
+  toast: {
+    errorNetwork: 'Ошибка соединения',
+  },
 }
 
 export default ru;
