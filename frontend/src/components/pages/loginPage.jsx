@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import loginLogo from '../../public/images/loginLogo.jpeg';
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-import { apiPaths } from "../../utils/routes";
+import routes, { apiPaths } from "../../utils/routes";
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { setToken, setUserName } from "../../slices/authSlice";
@@ -50,7 +50,7 @@ const LoginPage = () => {
                 console.error(err);
                 toast.error(t('toask.errorNetwork'))
             }
-            //setSumbitting(false);
+            setSumbitting(false);
         }
     };
 
@@ -102,7 +102,7 @@ const LoginPage = () => {
                                 />
                                 <Form.Label htmlFor="password">{t('form.password')}</Form.Label>
                                 {error && (
-                                    <Form.Control.Feedback className="invalid-toolip">
+                                    <Form.Control.Feedback className="invalid-tooltip">
                                         {t('form.loginError')}
                                     </Form.Control.Feedback>
                                 )}
