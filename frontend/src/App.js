@@ -1,6 +1,10 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import {
+  Provider as ProviderRollbar,
+  ErrorBoundary,
+} from '@rollbar/react';
 import ErrorPage from './components/pages/errorPage.jsx';
 import LoginPage from './components/pages/loginPage.jsx';
 import ChatPage from './components/pages/chatPage.jsx';
@@ -9,13 +13,17 @@ import routes from './utils/routes.js';
 import ru from './utils/locales';
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import store from './store/store.js';
 
 const App = () => {
   const resources = {
     ru: {
       translation: ru,
     },
+  };
+
+  const rollbarConfig = {
+    accessToken: process.env.REACT_APP_TOKEN_ACCESS,
+    environment: 'production',
   };
 
   i18next.use(initReactI18next).init({
@@ -28,17 +36,19 @@ const App = () => {
   });
 
   return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <div className="d-flex flex-column h-100">
+
+    <div className="d-flex flex-column h-100">
+      <ProviderRollbar config={rollbarConfig}>
+        <BrowserRouter>
           <Routes>
             <Route path="*" element={<ErrorPage />} />
             <Route path={routes.login} element={<LoginPage />} />
             <Route path={routes.chat} element={<ChatPage />} />
           </Routes>
-        </div>
-      </BrowserRouter >
-    </Provider>
+        </BrowserRouter >
+      </ProviderRollbar>
+    </div>
+
   );
 }
 

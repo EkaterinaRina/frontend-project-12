@@ -31,7 +31,7 @@ const LoginPage = () => {
 
     const handleSubmit = async (values, { setSumbitting }) => {
         try {
-            const { data } = await axios.post(routes.login, values);
+            const { data } = await axios.post('api/v1/login', values);
             if (data.token) {
                 setToken(data.token);
                 setUserName(data.username);
@@ -50,18 +50,16 @@ const LoginPage = () => {
                 console.error(err);
                 toast.error(t('toask.errorNetwork'))
             }
-            setSumbitting(false);
+            //setSumbitting(false);
         }
     };
 
     const formik = useFormik({
         initialValues: {
-            initialValues: {
-                username: '',
-                password: '',
-            },
-            onSubmit: handleSubmit,
-        }
+            username: '',
+            password: '',
+        },
+        onSubmit: handleSubmit,
     });
 
     return (
