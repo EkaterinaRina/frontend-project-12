@@ -46,7 +46,7 @@ const App = () => {
             <Route path={routes.chat} element={<ChatPage />} />
           </Routes>
         </BrowserRouter >
-      </ProviderRollbar>
+      </ProviderRollbar >
     </div>
 
   );

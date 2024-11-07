@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import loginLogo from '../../public/images/loginLogo.jpeg';
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-import routes from "../../utils/routes";
+import { apiPaths } from "../../utils/routes";
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { setToken, setUserName } from "../../slices/authSlice";
@@ -31,7 +31,7 @@ const LoginPage = () => {
 
     const handleSubmit = async (values, { setSumbitting }) => {
         try {
-            const { data } = await axios.post('api/v1/login', values);
+            const { data } = await axios.post(apiPaths.loginPath(), values);
             if (data.token) {
                 setToken(data.token);
                 setUserName(data.username);
