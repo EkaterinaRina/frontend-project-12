@@ -36,7 +36,6 @@ const App = () => {
   });
 
   return (
-
     <div className="d-flex flex-column h-100">
       <ProviderRollbar config={rollbarConfig}>
         <BrowserRouter>
@@ -48,7 +47,6 @@ const App = () => {
         </BrowserRouter >
       </ProviderRollbar >
     </div>
-
   );
 }
 

@@ -3,8 +3,8 @@ const serverPath = 'api/v1';
 export const apiPaths = {
     loginPath: () => [serverPath, 'login'].join('/'),
     channelPath: () => [serverPath, 'channels'].join('/'),
-    messagePath: () => [apiPath, 'messages'].join('/'),
-    signupPath: () => [apiPath, 'signup'].join('/'),
+    messagePath: () => [serverPath, 'messages'].join('/'),
+    signupPath: () => [serverPath, 'signup'].join('/'),
 }
 
 const routes = {
