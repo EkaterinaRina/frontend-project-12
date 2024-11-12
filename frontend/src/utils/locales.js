@@ -22,7 +22,7 @@ const ru = {
   chat: {
     channels: 'Каналы',
     plus: '+',
-    massage_one: '{{count}} сообщение',
+    message_one: '{{count}} сообщение',
     message_few: '{{count}} сообщения',
     message_many: '{{count}} сообщений',
     newMessage: 'Новое сообщение',

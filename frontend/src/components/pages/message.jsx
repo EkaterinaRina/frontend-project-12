@@ -18,7 +18,7 @@ const Message = () => {
             const { message } = values;
             const data = {
                 message,
-                cannelId: currentChannel.id,
+                channelId: currentChannel.id,
                 username,
             };
             await addMessage(data);

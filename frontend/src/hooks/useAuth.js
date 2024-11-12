@@ -12,7 +12,7 @@ const useAuth = () => {
     }
 
     const logOut = () => {
-        dispatch(logOut());
+        dispatch(logout());
     }
 
     return {
