@@ -28,7 +28,7 @@ const ru = {
     newMessage: 'Новое сообщение',
     placeholder: 'Введите сообщение...',
     send: 'Отправить',
-    addChannels: 'Добавить канал',
+    addChannel: 'Добавить канал',
     removeChannel: 'Удалить канал',
     removeChannelText: 'Уверены?',
     nameChannel: 'Имя канала',
@@ -46,7 +46,16 @@ const ru = {
   },
   toast: {
     errorNetwork: 'Ошибка соединения',
+    channelCreated: 'Канал создан',
+    channelDeleted: 'Канал удален',
+    channelRename: 'Канал переименован',
   },
+  errors: {
+    required: 'Обязательное поле',
+    minMax: 'От 3 до 20 символов',
+    notUniqueName: 'Должно быть уникальнынм',
+    networkError: 'Ошибка соединения',
+  }
 }
 
 export default ru;

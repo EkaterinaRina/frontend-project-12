@@ -20,8 +20,6 @@ const ChatPage = () => {
     const filterMessages = messagesData.filter((message) => message.channelId === currentChannel.id);
     const endRefMessage = useRef(null);
 
-    console.log(filterMessages)
-
     const scrollToBottom = () => {
         endRefMessage.current.scrollIntoView({ behavior: 'smooth' });
     };

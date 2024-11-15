@@ -9,6 +9,7 @@ import ErrorPage from './components/pages/errorPage.jsx';
 import LoginPage from './components/pages/loginPage.jsx';
 import ChatPage from './components/pages/chatPage.jsx';
 import routes from './utils/routes.js';
+import { ToastContainer } from 'react-toastify';
 //import { AuthProvider } from './hooks/authProvider.jsx';
 import ru from './utils/locales';
 import i18next from 'i18next';
@@ -44,6 +45,7 @@ const App = () => {
             <Route path={routes.login} element={<LoginPage />} />
             <Route path={routes.chat} element={<ChatPage />} />
           </Routes>
+          <ToastContainer />
         </BrowserRouter >
       </ProviderRollbar >
     </div>

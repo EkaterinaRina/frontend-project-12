@@ -8,7 +8,10 @@ import { Dropdown, ButtonGroup } from 'react-bootstrap'
 import channelsApi, { useGetChannelsQuery } from "../../api/channelApi.js";
 import { setCurrentChannel } from "../../slices/channelSlice.js";
 import routes from "../../utils/routes.js";
+import { io } from "socket.io-client";
 import useAuth from '../../hooks/useAuth.js';
+import ModalContainer from "../modals/index.jsx";
+import { setModalChannel } from "../../slices/modalSlice.js";
 
 const Channels = () => {
     const { t } = useTranslation();
@@ -25,9 +28,9 @@ const Channels = () => {
         isLoading: isLoadingChannels,
     } = useGetChannelsQuery();
 
-    const handleModalShow = () => {
-        console.log('modal');
-    }
+    const handleModalShow = (modal, channel = { id: '', name: '' }) => {
+        dispatch(setModalChannel({ id: channel.id, name: channel.name, modal }));
+    };
 
     const handleClickChannel = (channelId) => {
         dispatch(setCurrentChannel(channelId));
@@ -52,6 +55,37 @@ const Channels = () => {
         }
     }, [channelsData]);
 
+    useEffect(() => {
+        const socket = io();
+
+        const handleNewChannel = (channel) => {
+            dispatch(channelsApi.util.updateQueryData('getChannels', undefined, (draft) => {
+                draft.push(channel);
+            }));
+        };
+
+        const handleRemoveChannel = ({ id }) => {
+            dispatch(channelsApi.util.updateQueryData('getChannels', undefined, (draft) => draft.filter((currentChannel) => currentChannel.id !== id)));
+        }
+
+        const handleRenameChannel = ({ id, name }) => {
+            dispatch(channelsApi.util.updateQueryData('getChannels', undefined, (draft) => {
+                const updateChannels = draft.map((channel) => (channel.id === id ? { ...channel, name } : channel));
+                Object.assign(draft, updateChannels);
+            }))
+        }
+
+        socket.on('newChannel', handleNewChannel);
+        socket.on('removeChannel', handleRemoveChannel);
+        socket.on('renameChannel', handleRenameChannel);
+
+        return () => {
+            socket.off('newChannel');
+            socket.off('removeChannel');
+            socket.off('renameChannel');
+        }
+    }, [dispatch]);
+
     return isLoadingChannels ? (
         <div>{t('chat.loading')}</div>
     ) : (<div className="col-4 col-md-2 border-end px-0 bg-light flex-column h-100 d-flex">
@@ -60,7 +94,7 @@ const Channels = () => {
             <button
                 type='button'
                 className="'btn btn-outline-primary btn-sm"
-                onClick={() => handleModalShow()}
+                onClick={() => handleModalShow('adding')}
             >
                 {t('chat.plus')}
             </button>
@@ -89,16 +123,16 @@ const Channels = () => {
                                     split
                                     variant={channel.id === currentChannel.id ? 'secondary' : 'light'}
                                 >
-                                    <span className="vusually-hidden">{t('chat.channelActions')}</span>
+                                    <span className="visually-hidden">{t('chat.channelActions')}</span>
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu>
                                     <Dropdown.Item
-                                        onClick={() => handleModalShow()}
+                                        onClick={() => handleModalShow('removing', channel)}
                                     >
                                         {t('chat.remove')}
                                     </Dropdown.Item>
                                     <Dropdown.Item
-                                        onClick={() => handleModalShow()}
+                                        onClick={() => handleModalShow('renaming', channel)}
                                     >
                                         {t('chat.rename')}
                                     </Dropdown.Item>
@@ -110,6 +144,7 @@ const Channels = () => {
             ))}
             <div ref={channelsEndRef} />
         </ul>
+        <ModalContainer />
     </div>
     )
 }
