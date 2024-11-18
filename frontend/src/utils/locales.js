@@ -44,7 +44,7 @@ const ru = {
     username: 'Имя пользователя',
     password: 'Пароль',
     submit: 'Зарегестрироваться',
-    confirmPassword: 'Подтвердить пароль',
+    confirmPassword: 'Подтвердите пароль',
   },
   header: {
     quit: 'Выход',
