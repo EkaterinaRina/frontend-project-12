@@ -1,10 +1,10 @@
 import React, { useRef, useEffect } from "react";
-import Channels from "./channels.jsx";
+import Channels from "./Channels.jsx";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { io } from 'socket.io-client';
 import messagesApi, { useGetMessagesQuery } from "../../api/messageApi.js";
-import Message from "./message.jsx";
+import Message from "./Message.jsx";
 
 const ChatPage = () => {
     const { t } = useTranslation();

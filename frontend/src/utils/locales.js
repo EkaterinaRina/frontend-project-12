@@ -40,6 +40,13 @@ const ru = {
     renameChannel: 'Переименовать канал',
     loading: 'Загрузка...'
   },
+  signup: {
+    registration: 'Регистрация',
+    username: 'Имя пользователя',
+    password: 'Пароль',
+    submit: 'Зарегестрироваться',
+    confirmPassword: 'Подтвердить пароль',
+  },
   header: {
     quit: 'Выход',
     title: 'Hexlet Chat',
@@ -55,6 +62,9 @@ const ru = {
     minMax: 'От 3 до 20 символов',
     notUniqueName: 'Должно быть уникальнынм',
     networkError: 'Ошибка соединения',
+    minSymbols: 'Не менее 6 символов',
+    matchPasswords: 'Пароли должны совпадать',
+    userExists: 'Пользователь существует',
   }
 }
 
