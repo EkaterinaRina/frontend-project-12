@@ -21,7 +21,6 @@ const Channels = () => {
     const channelsEndRef = useRef(null);
 
     const { currentChannel } = useSelector((state) => state.currentChannel);
-
     const {
         data: channelsData,
         error: channelsError,
