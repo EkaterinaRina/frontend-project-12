@@ -10,13 +10,13 @@ const ru = {
     registrationHeader: 'Регистрация',
     username: 'Имя пользователя',
     password: 'Пароль',
-    passCheck: 'Повторите пароль',
+    passCheck: 'Подтвердите пароль',
     withoutAccount: 'Нет аккаунта?',
     withAccount: 'Есть аккаунт?',
     send: 'Отправить',
     registration: 'Регистрация',
     goRegistration: 'Загерестрироваться',
-    loginError: 'Неверный логин или пароль',
+    loginError: 'Неверное имя пользователя или пароль',
     enter: 'Войти',
   },
   chat: {
@@ -35,7 +35,6 @@ const ru = {
     cancel: 'Отмена',
     delete: 'Удалить',
     channelActions: 'Управление каналом',
-    remove: 'Удалить',
     rename: 'Переименовать',
     renameChannel: 'Переименовать канал',
     loading: 'Загрузка...'
