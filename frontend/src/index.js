@@ -8,6 +8,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import reportWebVitals from './reportWebVitals';
 import store from './store/store.js';
+import filter from 'leo-profanity';
+
+filter.add(filter.getDictionary('en'));
+filter.add(filter.getDictionary('ru'));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

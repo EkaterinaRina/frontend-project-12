@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import { useFormik } from "formik";
 import { useRenameChannelMutation } from "../../api/channelApi";
 import { setCurrentChannel } from "../../slices/channelSlice";
+import filter from 'leo-profanity';
 
 const RenameChannel = (props) => {
     const { t } = useTranslation();
@@ -33,10 +34,10 @@ const RenameChannel = (props) => {
     const handleRenameChannel = async (values) => {
         try {
             const { name, channelId } = values;
-
+            const cleanName = filter.clean(name);
             const data = {
                 id: channelId,
-                name,
+                name: cleanName,
                 removable: true,
             };
 

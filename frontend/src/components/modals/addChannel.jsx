@@ -9,6 +9,7 @@ import { useFormik } from "formik";
 import { useRollbar } from '@rollbar/react';
 import { useAddChannelMutation } from "../../api/channelApi";
 import { setCurrentChannel } from "../../slices/channelSlice";
+import filter from 'leo-profanity';
 
 const AddChannel = (props) => {
     const { t } = useTranslation();
@@ -31,8 +32,9 @@ const AddChannel = (props) => {
         validationSchema: getValidateChannelName,
         onSubmit: async (values) => {
             try {
+                const cleanName = filter.clean(values.name);
                 const data = {
-                    name: values.name,
+                    name: cleanName,
                     removable: true,
                 };
 
