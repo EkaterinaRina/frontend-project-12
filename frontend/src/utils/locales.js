@@ -51,7 +51,7 @@ const ru = {
   toast: {
     errorNetwork: 'Ошибка соединения',
     channelCreated: 'Канал создан',
-    channelDeleted: 'Канал удален',
+    channelDeleted: 'Канал удалён',
     channelRename: 'Канал переименован',
   },
   errors: {
