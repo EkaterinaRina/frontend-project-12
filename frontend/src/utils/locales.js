@@ -14,7 +14,7 @@ const ru = {
     send: 'Отправить',
     registration: 'Регистрация',
     goRegistration: 'Загерестрироваться',
-    loginError: 'Неверное имя пользователя или пароль',
+    loginError: 'Неверные имя пользователя или пароль',
   },
   chat: {
     channels: 'Каналы',
