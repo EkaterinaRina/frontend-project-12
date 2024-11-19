@@ -86,7 +86,7 @@ const LoginPage = () => {
                                     ref={inputRef}
                                     autoFocus
                                 />
-                                <Form.Label className="form-label" htmlFor="username">{t('form.username')}</Form.Label>
+                                <Form.Label className="form-label" htmlFor="username">{t('form.yourName')}</Form.Label>
                             </Form.Group>
                             <Form.Group className="form-group form-floating mb-4">
                                 <Form.Control
@@ -108,7 +108,7 @@ const LoginPage = () => {
                                 )}
                             </Form.Group>
                             <div className="text-center">
-                                <button type="submit" className="w-100 mb-3 btn btn-outline-primary">{t('form.enter')}</button>
+                                <button type="submit" className="w-100 mb-3 btn btn-outline-primary">{t('form.loginHeader')}</button>
                             </div>
                         </Form>
                     </div>

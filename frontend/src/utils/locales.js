@@ -6,9 +6,7 @@ const ru = {
   },
   form: {
     loginHeader: 'Войти',
-    yourName: 'Ваш ник',
-    registrationHeader: 'Регистрация',
-    username: 'Имя пользователя',
+    username: 'Ваш ник',
     password: 'Пароль',
     passCheck: 'Подтвердите пароль',
     withoutAccount: 'Нет аккаунта?',
@@ -17,7 +15,6 @@ const ru = {
     registration: 'Регистрация',
     goRegistration: 'Загерестрироваться',
     loginError: 'Неверное имя пользователя или пароль',
-    enter: 'Войти',
   },
   chat: {
     channels: 'Каналы',
