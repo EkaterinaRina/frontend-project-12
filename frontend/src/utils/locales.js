@@ -34,7 +34,8 @@ const ru = {
     channelActions: 'Управление каналом',
     rename: 'Переименовать',
     renameChannel: 'Переименовать канал',
-    loading: 'Загрузка...'
+    loading: 'Загрузка...',
+    remove: 'Удалить',
   },
   signup: {
     registration: 'Регистрация',
