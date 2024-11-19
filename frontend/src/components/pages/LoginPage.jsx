@@ -81,12 +81,12 @@ const LoginPage = () => {
                                     value={formik.values.username}
                                     autoComplete='username'
                                     onChange={formik.handleChange}
-                                    placeholder={t('form.yourName')}
+                                    placeholder={t('form.username')}
                                     required
                                     ref={inputRef}
                                     autoFocus
                                 />
-                                <Form.Label className="form-label" htmlFor="username">{t('form.yourName')}</Form.Label>
+                                <Form.Label className="form-label" htmlFor="username">{t('form.username')}</Form.Label>
                             </Form.Group>
                             <Form.Group className="form-group form-floating mb-4">
                                 <Form.Control
