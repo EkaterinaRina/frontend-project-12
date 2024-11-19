@@ -63,7 +63,7 @@ const ru = {
     networkError: 'Ошибка соединения',
     minSymbols: 'Не менее 6 символов',
     matchPasswords: 'Пароли должны совпадать',
-    userExists: 'Пользователь существует',
+    userExists: 'Такой пользователь уже существует',
   }
 }
 
