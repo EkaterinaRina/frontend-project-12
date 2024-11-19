@@ -25,9 +25,7 @@ const ModalContainer = () => {
 
   const showModal = useSelector((state) => state.channelsModal.showModal);
 
-  const channels = useSelector((state) =>
-    channelsApi.endpoints.getChannels.select()(state)?.data
-  );
+  const channels = useSelector((state) => channelsApi.endpoints.getChannels.select()(state)?.data);
 
   const getValidateChannelName = Yup.object().shape({
     name: Yup.string()

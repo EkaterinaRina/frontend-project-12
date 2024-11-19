@@ -17,9 +17,7 @@ const ChatPage = () => {
   } = useGetMessagesQuery();
 
   const { currentChannel } = useSelector((state) => state.currentChannel);
-  const filterMessages = messagesData.filter((message) =>
-    message.channelId === currentChannel.id
-  );
+  const filterMessages = messagesData.filter((message) => message.channelId === currentChannel.id);
   const endRefMessage = useRef(null);
 
   const scrollToBottom = () => {

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Form } from 'react-bootstrap';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
-import { useDispatch } from "react-redux";
+import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import useAuth from '../../hooks/useAuth';
 import { setToken, setUserName } from '../../slices/authSlice';
@@ -169,7 +169,7 @@ const SignUp = () => {
                       formik.touched.confirmPassword && formik.errors.confirmPassword
                     }
                   />
-                  <Form.Label className="form-label" htmlFor="confirmPassword" >
+                  <Form.Label className="form-label" htmlFor="confirmPassword">
                     {t('signup.confirmPassword')}
                   </Form.Label>
                   <Form.Control.Feedback

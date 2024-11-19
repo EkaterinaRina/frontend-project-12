@@ -6,7 +6,7 @@ const ErrorPage = () => {
 
   return (
     <div className="text-center">
-      <img src={notFoundLogo} alt={t('pageNotFound.notFound')} className='w-25 img-fluid' />
+      <img src={notFoundLogo} alt={t('pageNotFound.notFound')} className="w-25 img-fluid" />
       <h2 className="h4 text-muted">{t('pageNotFound.notFound')}</h2>
       <p className="text-muted">
         {t('pageNotFound.but')}
