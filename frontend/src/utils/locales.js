@@ -62,7 +62,7 @@ const ru = {
     minSymbols: 'Не менее 6 символов',
     matchPasswords: 'Пароли должны совпадать',
     userExists: 'Такой пользователь уже существует',
-  }
-}
+  },
+};
 
 export default ru;
