@@ -33,7 +33,7 @@ const SignUp = () => {
         username: yup
             .string()
             .required(t('errors.required'))
-            .min(6, t('errors.minMax'))
+            .min(3, t('errors.minMax'))
             .max(20, t('errors.minMax')),
         password: yup
             .string()
