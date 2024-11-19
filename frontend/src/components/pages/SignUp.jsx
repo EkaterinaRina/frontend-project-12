@@ -123,7 +123,7 @@ const SignUp = () => {
                                         className="invalid-tooltip"
                                         style={{ width: 'unset' }}
                                     >
-                                        {err === 'userExists' ? t('error.userExists') : formik.errors.username}
+                                        {err === 'userExists' ? t('errors.userExists') : formik.errors.username}
                                     </Form.Control.Feedback>
                                     <Form.Label className="form-label" htmlFor="username">
                                         {t('signup.username')}
@@ -173,7 +173,7 @@ const SignUp = () => {
                                         className="invalid-tooltip"
                                         style={{ width: 'unset' }}
                                     >
-                                        {formik.errors.confirmPassword || t('errosrs.userExists')}
+                                        {formik.errors.confirmPassword || t('errors.userExists')}
                                     </Form.Control.Feedback>
                                 </Form.Group>
                                 <button
