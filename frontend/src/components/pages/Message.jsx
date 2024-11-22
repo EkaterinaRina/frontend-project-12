@@ -17,14 +17,18 @@ const Message = () => {
   const handleSubmitMessage = async (values, { setSubmitting, resetForm }) => {
     try {
       const { message } = values;
-      const cleanMessage = filter.clean(message);
-      const data = {
-        message: cleanMessage,
-        channelId: currentChannel.id,
-        username,
-      };
-      await addMessage(data);
-      resetForm();
+      if (message.trim().length === 0) {
+        resetForm();
+      } else {
+        const cleanMessage = filter.clean(message);
+        const data = {
+          message: cleanMessage,
+          channelId: currentChannel.id,
+          username,
+        };
+        await addMessage(data);
+        resetForm();
+      }
     } catch (error) {
       console.log(error);
     } finally {
