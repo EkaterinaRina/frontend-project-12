@@ -12,6 +12,7 @@ import routes from '../../utils/routes.js';
 import useAuth from '../../hooks/useAuth.js';
 import ModalContainer from '../modals/index.jsx';
 import { setModalChannel } from '../../slices/modalSlice.js';
+import { getCurrentChannel } from '../../store/getSelectors.js';
 
 const Channels = () => {
   const { t } = useTranslation();
@@ -20,7 +21,7 @@ const Channels = () => {
   const navigate = useNavigate();
   const channelsEndRef = useRef(null);
 
-  const { currentChannel } = useSelector((state) => state.currentChannel);
+  const currentChannel = useSelector(getCurrentChannel);
   const {
     data: channelsData,
     error: channelsError,

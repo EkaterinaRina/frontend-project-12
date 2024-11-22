@@ -4,13 +4,14 @@ import { useTranslation } from 'react-i18next';
 import { useFormik } from 'formik';
 import filter from 'leo-profanity';
 import { useAddMessageMutation } from '../../api/messageApi';
+import { getUsername, getCurrentChannel } from '../../store/getSelectors';
 
 const Message = () => {
   const { t } = useTranslation();
 
-  const username = useSelector((state) => state.auth.userName);
+  const username = useSelector(getUsername);
   const [addMessage] = useAddMessageMutation();
-  const { currentChannel } = useSelector((state) => state.currentChannel);
+  const currentChannel = useSelector(getCurrentChannel);
 
   const inputRef = useRef(null);
 

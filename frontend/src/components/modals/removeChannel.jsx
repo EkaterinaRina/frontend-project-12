@@ -4,6 +4,7 @@ import { Modal } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import { useRemoveChannelMutation } from '../../api/channelApi';
 import { setCurrentChannel } from '../../slices/channelSlice';
+import { getCurrentChannelId } from '../../store/getSelectors';
 
 const RemoveChannel = (props) => {
   const { showModal, handleCloseModal, modalChannelId } = props;
@@ -11,7 +12,7 @@ const RemoveChannel = (props) => {
   const dispatch = useDispatch();
   const [removeChannel] = useRemoveChannelMutation();
 
-  const currentChannelId = useSelector((state) => state.currentChannel.currentChannel.id);
+  const currentChannelId = useSelector(getCurrentChannelId);
   const defaultChannel = { id: '1', name: 'general', removable: false };
 
   const handleRemoveChannel = async (id) => {

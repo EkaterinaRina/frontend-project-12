@@ -6,6 +6,7 @@ import { setModalChannel } from '../../slices/modalSlice';
 import AddChannel from './addChannel';
 import RemoveChannel from './removeChannel';
 import RenameChannel from './renameChannel';
+import { getChannelsModalId, getChannelsModalName } from '../../store/getSelectors';
 
 const modals = {
   adding: AddChannel,
@@ -16,8 +17,8 @@ const modals = {
 const ModalContainer = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const modalChannelId = useSelector((state) => state.channelsModal.channelsModal.id);
-  const modalChannelName = useSelector((state) => state.channelsModal.channelsModal.name);
+  const modalChannelId = useSelector(getChannelsModalId);
+  const modalChannelName = useSelector(getChannelsModalName);
 
   const handleCloseModal = () => {
     dispatch(setModalChannel({ id: '', name: '', modal: '' }));

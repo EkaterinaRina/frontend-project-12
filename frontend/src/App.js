@@ -16,6 +16,7 @@ import LoginPage from './components/pages/LoginPage.jsx';
 import ChatPage from './components/pages/ChatPage.jsx';
 import routes from './utils/routes.js';
 import ru from './utils/locales';
+import filter from 'leo-profanity';
 import SignUp from './components/pages/SignUp.jsx';
 import Header from './components/pages/Header.jsx';
 import PrivateRoute from './utils/privateRoute.jsx';
@@ -26,6 +27,10 @@ const App = () => {
       translation: ru,
     },
   };
+
+
+  filter.add(filter.getDictionary('en'));
+  filter.add(filter.getDictionary('ru'));
 
   const rollbarConfig = {
     accessToken: 'f8f6a5585c304eb5b5e96dc3bd470e36',

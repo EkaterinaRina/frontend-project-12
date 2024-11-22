@@ -5,6 +5,7 @@ import { io } from 'socket.io-client';
 import messagesApi, { useGetMessagesQuery } from '../../api/messageApi.js';
 import Message from './Message.jsx';
 import Channels from './Channels.jsx';
+import { getCurrentChannel } from '../../store/getSelectors.js';
 
 const ChatPage = () => {
   const { t } = useTranslation();
@@ -16,7 +17,7 @@ const ChatPage = () => {
     data: messagesData = [],
   } = useGetMessagesQuery();
 
-  const { currentChannel } = useSelector((state) => state.currentChannel);
+  const currentChannel = useSelector(getCurrentChannel);
   const filterMessages = messagesData.filter((message) => message.channelId === currentChannel.id);
   const endRefMessage = useRef(null);
 

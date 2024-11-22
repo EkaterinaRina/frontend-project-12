@@ -8,10 +8,11 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import useAuth from '../../hooks/useAuth';
+import { getToken } from '../../store/getSelectors';
 
 const Header = () => {
   const { t } = useTranslation();
-  const { token } = useSelector((state) => state.auth);
+  const token = useSelector(getToken);
   const { logOut } = useAuth();
 
   return (
