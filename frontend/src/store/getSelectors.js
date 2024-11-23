@@ -17,4 +17,4 @@ export {
   getCurrentChannelId,
   getCurrentChannel,
   getUsername,
-}
+};
