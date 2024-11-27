@@ -1,12 +1,11 @@
 import { useSelector, useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 import { useTranslation } from 'react-i18next';
-import channelsApi from '../../api/channelApi';
 import { setModalChannel } from '../../slices/modalSlice';
 import AddChannel from './addChannel';
 import RemoveChannel from './removeChannel';
 import RenameChannel from './renameChannel';
-import { getChannelsModalId, getChannelsModalName } from '../../store/getSelectors';
+import { getChannelsModalId, getChannelsModalName, getCannels, getShowModal } from '../../store/getSelectors';
 
 const modals = {
   adding: AddChannel,
@@ -24,9 +23,9 @@ const ModalContainer = () => {
     dispatch(setModalChannel({ id: '', name: '', modal: '' }));
   };
 
-  const showModal = useSelector((state) => state.channelsModal.showModal);
+  const showModal = useSelector(getShowModal);
 
-  const channels = useSelector((state) => channelsApi.endpoints.getChannels.select()(state)?.data);
+  const channels = useSelector(getCannels);
 
   const getValidateChannelName = Yup.object().shape({
     name: Yup.string()

@@ -1,15 +1,13 @@
 import { useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
-import { io } from 'socket.io-client';
-import messagesApi, { useGetMessagesQuery } from '../../api/messageApi.js';
+import { useSelector } from 'react-redux';
+import { useGetMessagesQuery } from '../../api/messageApi.js';
 import Message from './Message.jsx';
 import Channels from './Channels.jsx';
 import { getCurrentChannel } from '../../store/getSelectors.js';
 
 const ChatPage = () => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
 
   const messageRef = useRef();
 
@@ -28,19 +26,6 @@ const ChatPage = () => {
   useEffect(() => {
     scrollToBottom();
   }, [filterMessages]);
-
-  useEffect(() => {
-    const socket = io();
-    const handleMessage = (newMessage) => {
-      dispatch(messagesApi.util.updateQueryData('getMessages', undefined, (draft) => {
-        draft.push(newMessage);
-      }));
-    };
-    socket.on('newMessage', handleMessage);
-    return () => {
-      socket.off('newMessage');
-    };
-  }, [dispatch]);
 
   return (
     <div className="container h-100 my-4 overflow-hidden rounded shadow">

@@ -69,7 +69,7 @@ const LoginPage = () => {
           <div className="card shadow-sm">
             <div className="card-body row p-5">
               <div className="col-12 col-md-6 d-flex align-items-center justify-content-center">
-                <img src={loginLogo} className="rounded-circle" alt="Войти" />
+                <img src={loginLogo} className="rounded-circle" alt={t('form.loginHeader')} />
               </div>
               <Form className="col-12 col-md-6 mt-3 mt-md-0" onSubmit={formik.handleSubmit}>
                 <h1 className="text-center mb-4">{t('form.loginHeader')}</h1>

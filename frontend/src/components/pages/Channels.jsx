@@ -5,8 +5,7 @@ import classNames from 'classnames';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { Dropdown, ButtonGroup } from 'react-bootstrap';
-import { io } from 'socket.io-client';
-import channelsApi, { useGetChannelsQuery } from '../../api/channelApi.js';
+import { useGetChannelsQuery } from '../../api/channelApi.js';
 import { setCurrentChannel } from '../../slices/channelSlice.js';
 import routes from '../../utils/routes.js';
 import useAuth from '../../hooks/useAuth.js';
@@ -55,38 +54,7 @@ const Channels = () => {
     }
   }, [channelsData]);
 
-  useEffect(() => {
-    const socket = io();
 
-    const handleNewChannel = (channel) => {
-      dispatch(channelsApi.util.updateQueryData('getChannels', undefined, (draft) => {
-        draft.push(channel);
-      }));
-    };
-
-    const handleRemoveChannel = ({ id }) => {
-      dispatch(channelsApi.util.updateQueryData('getChannels', undefined, (draft) => draft.filter((channel) => channel.id !== id)));
-    };
-
-    const handleRenameChannel = ({ id, name }) => {
-      dispatch(channelsApi.util.updateQueryData('getChannels', undefined, (draft) => {
-        const updateChannels = draft.map((channel) => (
-          channel.id === id ? { ...channel, name } : channel
-        ));
-        Object.assign(draft, updateChannels);
-      }));
-    };
-
-    socket.on('newChannel', handleNewChannel);
-    socket.on('removeChannel', handleRemoveChannel);
-    socket.on('renameChannel', handleRenameChannel);
-
-    return () => {
-      socket.off('newChannel');
-      socket.off('removeChannel');
-      socket.off('renameChannel');
-    };
-  }, [dispatch]);
 
   return isLoadingChannels ? (
     <div>{t('chat.loading')}</div>
