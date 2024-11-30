@@ -54,8 +54,6 @@ const Channels = () => {
     }
   }, [channelsData]);
 
-
-
   return isLoadingChannels ? (
     <div>{t('chat.loading')}</div>
   ) : (

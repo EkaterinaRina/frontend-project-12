@@ -5,7 +5,12 @@ import { setModalChannel } from '../../slices/modalSlice';
 import AddChannel from './addChannel';
 import RemoveChannel from './removeChannel';
 import RenameChannel from './renameChannel';
-import { getChannelsModalId, getChannelsModalName, getCannels, getShowModal } from '../../store/getSelectors';
+import {
+  getChannelsModalId,
+  getChannelsModalName,
+  getCannels,
+  getShowModal
+} from '../../store/getSelectors';
 
 const modals = {
   adding: AddChannel,

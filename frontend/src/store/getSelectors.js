@@ -1,4 +1,4 @@
-import channelsApi from "../api/channelApi";
+import channelsApi from '../api/channelApi';
 
 const getToken = (state) => state.auth.token;
 
