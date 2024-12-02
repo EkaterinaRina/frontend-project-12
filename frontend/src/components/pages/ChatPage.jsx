@@ -18,8 +18,10 @@ const ChatPage = () => {
 
   const stateMessages = {
     messages: messagesData,
-  }
+  };
+
   const currentChannel = useSelector(getCurrentChannel);
+
   const filterMessagesSelector = createSelector(
     [(state) => state.messages],
     (messages) => messages.filter((message) => message.channelId === currentChannel.id),
