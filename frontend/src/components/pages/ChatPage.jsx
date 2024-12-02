@@ -1,11 +1,11 @@
 import { useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { createSelector } from '@reduxjs/toolkit';
 import { useGetMessagesQuery } from '../../api/messageApi.js';
 import Message from './Message.jsx';
 import Channels from './Channels.jsx';
 import { getCurrentChannel } from '../../store/getSelectors.js';
-import { createSelector } from '@reduxjs/toolkit';
 
 const ChatPage = () => {
   const { t } = useTranslation();
@@ -16,19 +16,17 @@ const ChatPage = () => {
     data: messagesData = [],
   } = useGetMessagesQuery();
 
-  const state = {
+  const stateMessages = {
     messages: messagesData,
   }
   const currentChannel = useSelector(getCurrentChannel);
   const filterMessagesSelector = createSelector(
     [(state) => state.messages],
-    messages => messages.filter((message) => message.channelId === currentChannel.id)
+    (messages) => messages.filter((message) => message.channelId === currentChannel.id),
   );
 
-  //console.log(filterMessagesSelector(state));
+  const filterMessages = filterMessagesSelector(stateMessages);
 
-  const filterMessages = filterMessagesSelector(state);
-  //const filterMessages = messagesData.filter((message) => message.channelId === currentChannel.id);
   const endRefMessage = useRef(null);
 
   const scrollToBottom = () => {

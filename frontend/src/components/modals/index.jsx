@@ -9,7 +9,7 @@ import {
   getChannelsModalId,
   getChannelsModalName,
   getCannels,
-  getShowModal
+  getShowModal,
 } from '../../store/getSelectors';
 
 const modals = {
